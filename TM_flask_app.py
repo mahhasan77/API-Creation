@@ -285,7 +285,7 @@ def perform_calculations(dataDF, dataDF1):
         new_AML_Result = "Reject"
 
     
-    api_key = "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"
+    api_key = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"  #replace with actual key
     content = "Can you please summarise: Merchant Level TimeLine result: " + new_AML_Timeline_Result + " Merchant Level Variance result: " + new_AML_Variance_Result + " Merchant Level Velocity result: " + new_AML_Velocity_Result +" Merchant Level Situation result: " + new_AML_Situation_Result + " Hence Merchant Final result: " + new_AML_Result
     endpoint = "https://api.openai.com/v1/chat/completions"
     conversation = [
