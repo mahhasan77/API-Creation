@@ -1,0 +1,17 @@
+{
+    "ReferenceId": "12345894-10238492-019",
+    "TM_ID": "UniqueId",
+    "alert": "High Priority",
+    "cardHolderResult": "Accept",
+    "comment": "The merchant level timeline, variance, and velocity are being reviewed. The situation is being accepted and therefore the final result is also accepted.",
+    "merchantResult": "Accept",
+    "situationResult": "Accept",
+    "situationScore": "100",
+    "timelineResult": "Accept",
+    "timelineScore": "100",
+    "varianceResult": "Review",
+    "varianceScore": "0",
+    "velocityResult": "Review",
+    "velocityScore": "0"
+}
+	

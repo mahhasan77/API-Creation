@@ -1,0 +1,31 @@
+{
+    "requestDetails": {
+        "requestId": "UNIQUE_REQUEST_ID22",
+        "requestDateTime": "2022-02-28T11:2:4.332"
+    },
+    "requestData": {
+        "transaction_uuid": "12345894-10238492-019",
+        "transaction_type": "0",
+        "account_age_score": "2.352996",
+        "new_account_score": "1.559692",
+        "AML_first_transaction_score": "2.822128",
+        "AML_last_transaction_score": "-0.159494",
+        "sleeper_score": "-0.017083",
+        "dormant_score": "-0.017052",
+        "account_risk_score": "3.686581",
+        "merchant_country_risk_score": "1.840451",
+        "mcc_risk_score": "0.194424",
+        "currency_risk_score": "-0.036752",
+        "high_value_score": "3.396481",
+        "avg_txn_variance_score": "-0.01992",
+        "max_txn_variance_score": "-0.004912",
+        "daily_sum_variance_score": "31.437988",
+        "monthly_avg_count_variance_score": "1.938327",
+        "daily_avg_count_variance_score": "3.021657",
+        "monthly_avg_sum_variance_score": "1.756729",
+        "AML_daily_sum_score": "13.569062",
+        "AML_daily_count_score": "1.136363",
+        "AML_monthly_sum_score": "11.481795",
+        "AML_monthly_count_score": "0.749673"
+    }
+}
