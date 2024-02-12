@@ -6,6 +6,7 @@ Created on Sun Sep 24 10:58:04 2023
 @author: mahrukhhasan
 """
 
+#Define all libraries and imports
 import pandas as pd
 import joblib
 import requests
@@ -16,6 +17,7 @@ import uuid
 from collections import OrderedDict
 import json
 
+# Setting up the mean and stadard deviations of basic scores
 mean_account_age_score = 1.5299110767102855
 SD_account_age_score = 2.2903028182999776
 mean_new_account_score = 2.763762219415791
@@ -62,6 +64,7 @@ SD_AML_monthly_sum_score = 1.7954580059789822
 mean_AML_monthly_count_score = 1.7880452017953328
 SD_AML_monthly_count_score = 1.8330969003344981
 
+# Setting up Flask server
 app = Flask(__name__)
 
 # Initialize a variable to store received data
@@ -75,30 +78,30 @@ jwt = JWTManager(app)
 SECRET_API_KEY = "123456789"
 
 # Middleware to check the API key
-#def require_api_key(func):
-    #@wraps(func)
-   # def check_api_key(*args, **kwargs):
-        #api_key = request.headers.get("APIKey")
+def require_api_key(func):
+    @wraps(func)
+   def check_api_key(*args, **kwargs):
+        api_key = request.headers.get("APIKey")
 
-       # if api_key == SECRET_API_KEY:
-           #print(api_key, SECRET_API_KEY)
-            #return func(*args, **kwargs)
-       # else:
-            #return jsonify({"error": "Authentication failed - Incorrect API KEY"}), 401
+       if api_key == SECRET_API_KEY:
+           print(api_key, SECRET_API_KEY)
+            return func(*args, **kwargs)
+       else:
+         return jsonify({"error": "Authentication failed - Incorrect API KEY"}), 401
 
-   # return check_api_key
+   return check_api_key
 
-# Define user authentication logic (you need to implement this)
-#def authenticate(username, password):
-    # Check the username and password against your user database
-     #Return True if authentication is successful, otherwise return False
-    #if username == 'MAHRUKH' and password == 'Mah@123456':
-        #return True
-   #return False
+# Define user authentication logic 
+def authenticate(username, password):
+    # Check the username and password against your user database - for multiple users instatiate db connection
+     Return True if authentication is successful, otherwise return False
+    if username == 'MAHRUKH' and password == 'Mah@123456':
+        return True
+   return False
 
 
 @app.route('/postman', methods=['GET', 'POST'])
-#@require_api_key
+@require_api_key
 def receive_postman_request():
     if request.method == 'GET':
         # Handle GET request to retrieve data
@@ -112,12 +115,12 @@ def receive_postman_request():
             return {"error": f"Failed to parse JSON data: {str(e)}"}, 400
         
         # Authenticate the user
-        #request_details = data.get('requestDetails', {})  # Get the requestDetails object
-        #username = request_details.get('username')  # Access the username field
-        #password = request_details.get('password')  # Access the password field
+        request_details = data.get('requestDetails', {})  # Get the requestDetails object
+        username = request_details.get('username')  # Access the username field
+        password = request_details.get('password')  # Access the password field
 
-        #if not authenticate(username, password):
-            #return {"error": "Authentication failed - Incorrect username or password"}, 401
+        if not authenticate(username, password):
+            return {"error": "Authentication failed - Incorrect username or password"}, 401
         
         # Cleanse data 
         try:
