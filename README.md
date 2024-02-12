@@ -1,0 +1,2 @@
+This repository aims at creating an API connection from a local host server to authorised users. The flask server will collect the data in the request format (attached request.json) and return the response in the response format (attached response.json).
+This API performs a task of getting preliminary results and then computing KNN results from the pickled models. The final results are then fed to Open AI API call to get the summary. 
